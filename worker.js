@@ -65,6 +65,15 @@ async function setUpBidirectional() {
   // stream.writable is a WritableStream
   return stream
 }
+
+async function setUpUnidirectional() {
+  const stream = await transport.createUnidirectionalStream();
+  // stream is a WebTransportBidirectionalStream
+  // stream.readable is a ReadableStream
+  // stream.writable is a WritableStream
+  return stream
+}
+
 async function closeTransport(transport) {
     // Respond to connection closing
   try {
