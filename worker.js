@@ -2,7 +2,7 @@ let transport, stream = null
 onmessage = (e) => {
   console.log('Message received from main script');
   try {
-    switch(e.event) {
+    switch(e.data.event) {
       case 'start':
         transport = initTransport(e.data.url, e.data.options)
         postMessage({event:'start', transport:transport})
@@ -14,7 +14,7 @@ onmessage = (e) => {
       break;
 
       case 'write-bidirectional':
-      writeData(stream.writable, e.data)
+      writeData(stream.writable, e.data.data)
       break;
 
       case 'data':
