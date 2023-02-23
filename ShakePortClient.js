@@ -13,6 +13,16 @@ export default class ShakePortClient {
       switch(event.data.event) {
         case 'start':
           console.log('Started')
+          this.transport = event.data.transport
+        break;
+        case 'stop':
+          this.transport = null
+        break;
+        case 'error':
+          console.log(event.data.error)
+        break;
+        default:
+          window.postMessage(event.data)
         break;
       }
     }
@@ -42,8 +52,5 @@ export default class ShakePortClient {
   writeUndirectional (data) {
     this.worker.postMessage({event:'write-unidirectional', data: data})
   }
-
-
-
-
+  
 }

@@ -1,6 +1,5 @@
 let transport, stream = null
 onmessage = (e) => {
-  console.log('Message received from main script');
   try {
     switch(e.data.event) {
       case 'start':

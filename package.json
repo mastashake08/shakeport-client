@@ -1,5 +1,5 @@
 {
-  "name": "shakeport-client",
+  "name": "@mastashake08/shakeport-client",
   "version": "1.0.0",
   "description": "A simple WebTransport client that utilizes WebWorkers for thread optimization. Can be used for Web games, iot applications, tickers and more. Needs to be paired with a WebTransport server you can check out shakeport-server for an easy integration.",
   "main": "ShakePortClient.js",
