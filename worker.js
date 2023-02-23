@@ -30,7 +30,7 @@ onmessage = (e) => {
     postMessage({event: 'error'});
   }
 }
-async function initTransport(url, options = {}) {
+async function initTransport(url, options: {}) {
   // Initialize transport connection
   const transport = new WebTransport(url, options);
 

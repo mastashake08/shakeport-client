@@ -1,10 +1,13 @@
+
 export default class ShakePortClient {
   transport = null
   constructor() {
-    this.worker = new Worker('worker.js')
+    const worker = require('./worker.js')
+    console.log(worker)
+    this.worker = new Worker(worker)
   }
 
-  startClient(data = {url, options = {}}) {
+  startClient(data = {url, options: {}}) {
     this.worker.postMessage({event:'start', ...data})
     this.worker.onmessage = (event) => {
       switch(event.data.event) {
@@ -35,7 +38,7 @@ export default class ShakePortClient {
   writeData (data) {
     this.worker.postMessage({event:'write-data', data: data})
   }
-  
+
   writeUndirectional (data) {
     this.worker.postMessage({event:'write-unidirectional', data: data})
   }
