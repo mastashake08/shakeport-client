@@ -5,7 +5,7 @@ onmessage = (e) => {
     switch(e.event) {
       case 'start':
         transport = initTransport(e.data.url, e.data.options)
-
+        postMessage({event:'start', transport:transport})
       break;
 
       case 'setup-bidirectional':
